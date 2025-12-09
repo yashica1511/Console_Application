@@ -56,10 +56,12 @@ public class Main {
         String userid=sc.next().toUpperCase();
         System.out.println("Enter password ");
         String password=sc.next();
+        boolean isid=false;
         boolean ispassword=false;
         char symbol=userid.charAt(0);
         for(String id:user.keySet()){
-            if(id.charAt(0)==symbol && id.equals(userid)){
+            if(id.equals(userid)){
+                isid=true;
                 User curuser = user.get(id);
                 if (password.equals(curuser.getPassword())) {
                     ispassword=true;
@@ -80,6 +82,9 @@ public class Main {
                 }
 
             }
+        }
+        if(!isid){
+            System.out.println("User not exist");
         }
     }
 
